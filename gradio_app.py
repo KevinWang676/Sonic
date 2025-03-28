@@ -21,9 +21,9 @@ def get_video_res(img_path, audio_path, res_video_path, dynamic_scale=1.0):
     face_info = pipe.preprocess(img_path, expand_ratio=expand_ratio)
     print(face_info)
     if face_info['face_num'] > 0:
-        crop_image_path = img_path + '.crop.png'
-        pipe.crop_image(img_path, crop_image_path, face_info['crop_bbox'])
-        img_path = crop_image_path
+        #crop_image_path = img_path + '.crop.png'
+        #pipe.crop_image(img_path, crop_image_path, face_info['crop_bbox'])
+        #img_path = crop_image_path
         os.makedirs(os.path.dirname(res_video_path), exist_ok=True)
         pipe.process(img_path, audio_path, res_video_path, min_resolution=min_resolution, inference_steps=inference_steps, dynamic_scale=dynamic_scale)
     else:
